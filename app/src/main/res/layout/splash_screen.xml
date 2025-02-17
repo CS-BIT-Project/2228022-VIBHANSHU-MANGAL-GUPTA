@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--Image for the splash Screen-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_background" />
+
+
+    <!-- layout to arrange elements like progressbar,image icon, textview etc. -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_bottom" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="413dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-2dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+
+        <!-- Empty View to Push Elements Down -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_weight="1"/>
+
+
+        <FrameLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="24dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
+        </FrameLayout>
+
+
+        <!--  Progress Bar    -->
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/progress_bar"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:scaleY="1"
+            android:progressTint="#2196F3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading amazing destinations..."
+            android:textColor="#757575"
+            android:textSize="14sp" />
+
+
+        <!-- Empty View to Push Elements Above -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_weight="1"/>
+
+        <!-- TextView at the bottom -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version 2.0.0 Pro"
+            android:textColor="#757575"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+
+    <!-- Title and the Sub-title for the application   -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="-83dp"
+        android:layout_marginEnd="95dp"
+        android:gravity="center"
+        android:text="TravelPlanner"
+        android:fontFamily="@font/pacifico"
+        android:textColor="#2196F3"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="-28dp"
+        android:layout_marginEnd="85dp"
+        android:gravity="center"
+        android:text="Your Ultimate Travel Companion"
+        android:fontFamily="@font/josefinsans"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

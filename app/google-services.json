@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206468308793",
+    "project_id": "aayu-01",
+    "storage_bucket": "aayu-01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206468308793:android:5cb0b05c7624cfa4ef92e8",
+        "android_client_info": {
+          "package_name": "com.example.plan_your_day"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206468308793-t49jepju0bj97hnr06h5hpa3338flpk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCopZX_wOcQCoptlGvywDcgW1h-g0XWKuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206468308793-t49jepju0bj97hnr06h5hpa3338flpk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
