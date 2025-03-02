@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures{
         viewBinding = true
@@ -55,16 +55,24 @@ dependencies {
 }
 
 dependencies {
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("com.google.android.material:material:1.5.0")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation (libs.androidx.constraintlayout.v214)
+    implementation (libs.material.v150)
+    implementation (libs.circleimageview)
 }
 
 dependencies {
-    implementation ("androidx.appcompat:appcompat:1.4.1")
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.preference)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation (libs.androidx.appcompat.v141)
     implementation ("com.google.android.material:material:1.5.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation (libs.androidx.recyclerview)
+    implementation (libs.androidx.core.ktx.v170)
+    implementation (libs.play.services.maps)   // Google Map SDK
+    implementation (libs.play.services.location)    // Location Services API
+    implementation (libs.google.android.maps.utils) // For polyline (route drawing)
+    implementation (libs.okhttp) // For API calls (Directions API)
 }
 
 

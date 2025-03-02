@@ -27,6 +27,10 @@ class ActivityLogin : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // ✅ Check if user is already logged in
+        if (firebaseAuth.currentUser != null) {
+            goToHomepage() // Skip login screen and go to homepage
+        }
 
         // Navigate to Signup Activity
         binding.textViewSignUp.setOnClickListener {
@@ -72,6 +76,12 @@ class ActivityLogin : AppCompatActivity() {
                     showToast(task.exception?.localizedMessage ?: "Login failed")
                 }
             }
+    }
+
+    private fun goToHomepage() {
+        startActivity(Intent(this, ActivityHomepage::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish() // Prevent going back to login screen
     }
 
     private fun showToast(message: String) {

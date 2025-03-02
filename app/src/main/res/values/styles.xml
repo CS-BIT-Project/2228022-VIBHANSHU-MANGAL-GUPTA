@@ -6,4 +6,13 @@
         <item name="cardElevation">0dp</item>
         <item name="rippleColor">@color/accent_blue</item>
     </style>
+
+    <style name="AlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">#6200EE</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="android:background">?attr/colorSurface</item>
+        <item name="android:windowBackground">?attr/colorSurface</item>
+        <item name="android:textColor">#333333</item>
+    </style>
 </resources>

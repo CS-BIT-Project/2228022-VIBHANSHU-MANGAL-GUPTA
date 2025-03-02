@@ -16,18 +16,19 @@
             android:id="@+id/statLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray_400"
-            android:textSize="12sp"
-            android:text="Budget Left" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Expenses :" />
 
         <TextView
             android:id="@+id/statValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="$2,450" />
+            android:textColor="@color/gray_400"
+            android:textSize="13sp"
+
+            android:text="Rs. 1250" />
 
     </LinearLayout>
 
