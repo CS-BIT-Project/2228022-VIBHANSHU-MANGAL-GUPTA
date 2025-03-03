@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <!-- Search Bar -->
@@ -33,16 +34,14 @@
                     android:src="@drawable/ic_search"
                     app:tint="@color/gray_light" />
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/searchInput"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:hint="Search location..."
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/gray_light" />
+                    android:hint="Search location...."
+                    android:textColorHint="@color/gray_500"
+                    android:inputType="text"/>
+
 
                 <ImageButton
                     android:id="@+id/locationButton"
@@ -55,11 +54,21 @@
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Current Weather -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pacifico"
+            android:text="Weather"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_gravity="center"/>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="26dp"
             app:cardBackgroundColor="@color/blue_primary"
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp">
@@ -85,7 +94,7 @@
                             android:id="@+id/locationName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="London, UK"
+                            android:text="Location"
                             android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -243,10 +252,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="7-Day Forecast"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="7 -Day Forecast"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView

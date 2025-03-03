@@ -66,13 +66,28 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation (libs.androidx.appcompat.v141)
-    implementation ("com.google.android.material:material:1.5.0")
+    implementation (libs.material)
     implementation (libs.androidx.recyclerview)
     implementation (libs.androidx.core.ktx.v170)
     implementation (libs.play.services.maps)   // Google Map SDK
-    implementation (libs.play.services.location)    // Location Services API
     implementation (libs.google.android.maps.utils) // For polyline (route drawing)
     implementation (libs.okhttp) // For API calls (Directions API)
+
+
+        // Retrofit for API calls
+        implementation (libs.retrofit)
+        implementation (libs.converter.gson)
+
+        // Coroutines
+        implementation (libs.kotlinx.coroutines.android)
+
+        // ViewModel and LiveData
+        implementation (libs.androidx.lifecycle.viewmodel.ktx)
+        implementation (libs.androidx.lifecycle.livedata.ktx)
+
+        // Location services
+        implementation (libs.play.services.location.v2101)
+
 }
 
 

@@ -30,18 +30,26 @@ class ForecastAdapter : ListAdapter<ForecastItem, ForecastAdapter.ViewHolder>(Fo
             binding.apply {
                 dayText.text = item.day
                 dateText.text = item.date
-                highTemp.text = "${item.highTemp}°"
-                lowTemp.text = "${item.lowTemp}°"
+                highTemp.text = item.highTemp
+                lowTemp.text = item.lowTemp
 
-                // Set weather icon based on weather condition
-                weatherIcon.setImageResource(
-                    when (item.weather) {
-                        "sunny" -> R.drawable.ic_sunny
-                        "cloudy" -> R.drawable.ic_cloudy
-                        "rainy" -> R.drawable.ic_rainy
-                        else -> R.drawable.ic_partly_cloudy
-                    }
-                )
+                // Set weather icon based on weather code
+                weatherIcon.setImageResource(getWeatherIconResource(item.weatherCode))
+            }
+        }
+
+        private fun getWeatherIconResource(weatherCode: Int): Int {
+            return when (weatherCode) {
+                0 -> R.drawable.ic_sunny
+                1, 2, 3 -> R.drawable.ic_partly_cloudy
+                45, 48 -> R.drawable.ic_foggy
+                51, 53, 55, 56, 57 -> R.drawable.ic_drizzle
+                61, 63, 65, 66, 67 -> R.drawable.ic_rainy
+                71, 73, 75, 77 -> R.drawable.ic_snowy
+                80, 81, 82 -> R.drawable.ic_rainy
+                85, 86 -> R.drawable.ic_snowy
+                95, 96, 99 -> R.drawable.ic_thunderstorm
+                else -> R.drawable.ic_sunny
             }
         }
     }
