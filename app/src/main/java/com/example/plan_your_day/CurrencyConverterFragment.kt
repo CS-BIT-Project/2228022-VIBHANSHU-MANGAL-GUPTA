@@ -21,6 +21,8 @@ class CurrencyConverterFragment : Fragment() {
     private lateinit var tvConvertedAmount: TextView
     private lateinit var tvExchangeRate: TextView
     private lateinit var tvLastUpdated: TextView
+    private lateinit var btnConvert: Button
+    private lateinit var btnBack: ImageButton
     private val currencies = arrayOf("USD", "INR", "NPR", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF")
 
     override fun onCreateView(
@@ -36,6 +38,8 @@ class CurrencyConverterFragment : Fragment() {
         tvConvertedAmount = view.findViewById(R.id.tvConvertedAmount)
         tvExchangeRate = view.findViewById(R.id.tvExchangeRate)
         tvLastUpdated = view.findViewById(R.id.tvLastUpdated)
+        btnConvert = view.findViewById(R.id.btnConvert)
+        btnBack = view.findViewById(R.id.btnBack)
         val btnSwap: ImageButton = view.findViewById(R.id.btnSwap)
 
         // Initialize spinners
@@ -52,27 +56,14 @@ class CurrencyConverterFragment : Fragment() {
 
         currencyApiService = retrofit.create(CurrencyApiService::class.java)
 
-        // Set up spinner listeners
-        spinnerFrom.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                convertCurrency()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
+        // Back Button Functionality
+        btnBack.setOnClickListener {
+            requireActivity().onBackPressed() // Navigate back to previous screen
         }
 
-        spinnerTo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                convertCurrency()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
-
-        // Set up amount input listener
-        etAmount.setOnEditorActionListener { _, _, _ ->
+        // Convert Button Functionality
+        btnConvert.setOnClickListener {
             convertCurrency()
-            false
         }
 
         // Swap currencies when button is clicked
@@ -81,7 +72,6 @@ class CurrencyConverterFragment : Fragment() {
             val toPosition = spinnerTo.selectedItemPosition
             spinnerFrom.setSelection(toPosition)
             spinnerTo.setSelection(fromPosition)
-            convertCurrency()
         }
 
         return view
@@ -102,6 +92,7 @@ class CurrencyConverterFragment : Fragment() {
             Toast.makeText(requireContext(), "Please enter a valid amount", Toast.LENGTH_SHORT).show()
             return
         }
+        
 
         // Make API call using Retrofit
         currencyApiService.getLatestRates(fromCurrency)
