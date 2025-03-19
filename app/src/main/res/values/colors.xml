@@ -33,4 +33,12 @@
     <color name="gray_light">#9AA0A6</color>
     <color name="amber_dark">#7B3F00</color>
     <color name="amber_light">#FFB74D</color>
+    <color name="dark_header">#1A2130</color>
+    <color name="dark_card">#1A2130</color>
+    <color name="dark_input">#252D3A</color>
+    <color name="dark_result">#252D3A</color>
+    <color name="gray_text">#B3FFFFFF</color>
+    <color name="gray_hint">#80FFFFFF</color>
+
+
 </resources>

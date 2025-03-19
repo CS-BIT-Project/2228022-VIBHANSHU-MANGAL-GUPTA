@@ -17,22 +17,27 @@
         android:padding="16dp"
         android:gravity="top"
         android:background="@android:color/transparent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:elevation="8dp">
 
-        <EditText
+        <!-- Use AutoCompleteTextView for Place Suggestions -->
+        <AutoCompleteTextView
             android:id="@+id/destinationInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter destination"
             android:padding="12dp"
             android:background="@android:color/white"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:completionThreshold="2"/>
 
         <Button
             android:id="@+id/startNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start Navigation"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/blue_light"
+            android:padding="8dp"/>
     </LinearLayout>
 </FrameLayout>
