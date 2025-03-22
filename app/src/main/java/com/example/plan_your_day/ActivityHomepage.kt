@@ -76,7 +76,7 @@ class ActivityHomepage : AppCompatActivity() {
             QuickAction.ActivityAction(ActionItinerary::class.java, R.id.quick_action1),
             QuickAction.ActivityAction(PackingListActivity::class.java, R.id.quick_action2),
             QuickAction.ActivityAction(TodoActivity::class.java, R.id.quick_action3),
-            QuickAction.ActivityAction(ActionExpenses::class.java, R.id.quick_action4),
+            QuickAction.ActivityAction(ExpenseTrackerActivity::class.java, R.id.quick_action4),
             QuickAction.FragmentAction(WeatherFragment::class.java, R.id.quick_action5),
             QuickAction.ActivityAction(NotesActivity::class.java, R.id.quick_action6),
             QuickAction.FragmentAction(CurrencyConverterFragment::class.java, R.id.quick_action7)
