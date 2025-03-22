@@ -39,6 +39,18 @@
     <color name="dark_result">#252D3A</color>
     <color name="gray_text">#B3FFFFFF</color>
     <color name="gray_hint">#80FFFFFF</color>
-
-
+    <color name="custom_purple">#AC1BF5</color>
+    <color name="blue_400">#4DA3FF</color>
+    <color name="purple_400">#B794F6</color>
+    <color name="yellow_400">#FFDE59</color>
+    <color name="purple_500">#AC1BF5</color>
+    <color name="purple_700">#9619D9</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="gray_600">#424242</color>
+    <color name="dark_bg">#1A1A1A</color>
+    <color name="input_background">#2A2A2A</color>
+    <color name="hint_color">#808080</color>
+    <color name="button_dark">#2A2A2A</color>
+    <color name="purple">#AC1BF5</color>
 </resources>

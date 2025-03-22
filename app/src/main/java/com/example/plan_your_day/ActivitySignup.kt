@@ -74,7 +74,8 @@ class ActivitySignup : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val user = firebaseAuth.currentUser
                     user?.let {
-                        saveUserDataToFirestore(it.uid, userName, email)
+                        val userUID = it.uid
+                        saveUserDataToFirestore(it.uid, userName, email, password)
                     }
                 } else {
                     showToast(task.exception?.localizedMessage ?: "Registration failed")
@@ -82,20 +83,32 @@ class ActivitySignup : AppCompatActivity() {
             }
     }
 
-    private fun saveUserDataToFirestore(uid: String, userName: String, email: String) {
+
+    private fun saveUserDataToFirestore(uid: String, userName: String, email: String, password: String) {
         val userData = hashMapOf(
             "uid" to uid,
             "name" to userName,
-            "email" to email
+            "email" to email,
+            "password" to password
         )
 
         firestore.collection("users").document(uid)
             .set(userData)
             .addOnSuccessListener {
-                showToast("Registration successful!")
-                startActivity(Intent(this, ActivityLogin::class.java))
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                finish()
+                // Automatically sign in the user after successful registration
+                firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { signInTask ->
+                        if (signInTask.isSuccessful) {
+                            showToast("Registration successful! Logging you in...")
+
+                            // Redirect to the main activity (Replace with your main activity)
+                            val intent = Intent(this, ActivityHomepage::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                        } else {
+                            showToast("Failed to log in: ${signInTask.exception?.localizedMessage}")
+                        }
+                    }
             }
             .addOnFailureListener { e ->
                 showToast("Failed to save user data: ${e.message}")

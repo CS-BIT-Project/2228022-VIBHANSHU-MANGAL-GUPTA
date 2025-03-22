@@ -35,9 +35,8 @@
             android:name=".ActionItinerary"
             android:exported="false" />
         <activity
-            android:name=".ActionExpenses"
-            android:exported="false" />
-
+            android:name=".ExpenseTrackerActivity"
+            android:exported="true" />
         
         <activity
             android:name=".ActivityHomepage"
