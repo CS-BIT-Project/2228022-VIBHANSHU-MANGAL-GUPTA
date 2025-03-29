@@ -34,38 +34,38 @@ class TripAdapter(private val trips: List<Trip>) :
     override fun onBindViewHolder(holder: TripViewHolder, position: Int) {
         val trip = trips[position]
 
-        // Trim unnecessary spaces from Firestore data
-        holder.tvTripName.text = trip.tripName.trim()
-        holder.tvDestinations.text = trip.destination.trim()
+        // Prevent null values from crashing the app
+        holder.tvTripName.text = trip.tripName?.trim() ?: "Unknown Trip"
+        holder.tvDestinations.text = trip.destination?.trim() ?: "Unknown Destination"
         holder.tvDates.text = "${formatDate(trip.startDate)} - ${formatDate(trip.endDate)}"
         holder.tvDuration.text = "${calculateDuration(trip.startDate, trip.endDate)} days"
         holder.tvTravelers.text = "${trip.travelersCount} travelers"
         holder.tvCost.text = "${trip.currency} ${trip.budget}"
-        holder.tvTransport.text = trip.transportation.trim()
+        holder.tvTransport.text = trip.transportation?.trim() ?: "Unknown Transport"
 
         // Determine and set the trip status
         val status = getTripStatus(trip.startDate, trip.endDate)
         holder.tvStatus.text = status
 
-        // Change background color dynamically
+        // Set status background dynamically
         val context = holder.itemView.context
-        val color = when (status) {
-            "Active" -> ContextCompat.getColor(context, R.color.status_active)
-            "Completed" -> ContextCompat.getColor(context, R.color.status_completed)
-            else -> ContextCompat.getColor(context, R.color.status_planning) // Planning
+        val backgroundRes = when (status) {
+            "Active" -> R.drawable.bg_status_active
+            "Completed" -> R.drawable.bg_status_completed
+            else -> R.drawable.bg_status_planning // Planning
         }
-        holder.tvStatus.setBackgroundColor(color)
+        holder.tvStatus.setBackgroundResource(backgroundRes)
     }
 
     override fun getItemCount(): Int = trips.size
 
     @SuppressLint("SimpleDateFormat")
-    private fun calculateDuration(startDate: String, endDate: String): Int {
+    private fun calculateDuration(startDate: String?, endDate: String?): Int {
         val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         return try {
-            val start = sdf.parse(startDate)
-            val end = sdf.parse(endDate)
-            val diff = end!!.time - start!!.time
+            val start = sdf.parse(startDate ?: "") ?: return 0
+            val end = sdf.parse(endDate ?: "") ?: return 0
+            val diff = end.time - start.time
             (diff / (1000 * 60 * 60 * 24)).toInt() + 1
         } catch (e: Exception) {
             0
@@ -73,11 +73,11 @@ class TripAdapter(private val trips: List<Trip>) :
     }
 
     @SuppressLint("SimpleDateFormat")
-    private fun getTripStatus(startDate: String, endDate: String): String {
+    private fun getTripStatus(startDate: String?, endDate: String?): String {
         val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         return try {
-            val start = sdf.parse(startDate)
-            val end = sdf.parse(endDate)
+            val start = sdf.parse(startDate ?: "") ?: return "Unknown"
+            val end = sdf.parse(endDate ?: "") ?: return "Unknown"
             val currentDate = Date()
 
             when {
@@ -91,14 +91,14 @@ class TripAdapter(private val trips: List<Trip>) :
     }
 
     @SuppressLint("SimpleDateFormat")
-    private fun formatDate(date: String): String {
+    private fun formatDate(date: String?): String {
         return try {
             val inputFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-            val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            val parsedDate = inputFormat.parse(date)
+            val outputFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault()) // Updated format
+            val parsedDate = inputFormat.parse(date ?: "")
             outputFormat.format(parsedDate!!)
         } catch (e: Exception) {
-            date
+            date ?: "Unknown Date"
         }
     }
 }
