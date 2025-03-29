@@ -22,6 +22,10 @@ class MyTripsActivity : AppCompatActivity() {
         recyclerViewTrips = findViewById(R.id.recyclerViewTrips)
         recyclerViewTrips.layoutManager = LinearLayoutManager(this)
 
+        // Initialize adapter once and set it to RecyclerView
+        tripAdapter = TripAdapter(tripsList)
+        recyclerViewTrips.adapter = tripAdapter
+
         fetchTripsFromFirestore()
     }
 
@@ -34,16 +38,16 @@ class MyTripsActivity : AppCompatActivity() {
 
         val db = FirebaseFirestore.getInstance()
         db.collection("users").document(userId).collection("trips")
-            .orderBy("timestamp")
-            .get()
+            .get()  // Removed orderBy("timestamp") unless timestamp exists
             .addOnSuccessListener { documents ->
                 tripsList.clear()
                 for (document in documents) {
                     val trip = document.toObject(Trip::class.java)
-                    tripsList.add(trip)
+                    if (trip != null) {  // Ensure trip is not null
+                        tripsList.add(trip)
+                    }
                 }
-                tripAdapter = TripAdapter(tripsList)
-                recyclerViewTrips.adapter = tripAdapter
+                tripAdapter.notifyDataSetChanged() // Update adapter without recreating it
             }
             .addOnFailureListener { e ->
                 Log.e("Firestore", "Error fetching trips", e)
