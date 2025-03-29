@@ -148,6 +148,4 @@ class ExpenseTrackerActivity : AppCompatActivity(), AddExpenseDialogFragment.Exp
     override fun onExpenseAdded(transaction: ExpenseTransaction) {
         updateExpenseTotals() // Just update totals
     }
-
-
 }

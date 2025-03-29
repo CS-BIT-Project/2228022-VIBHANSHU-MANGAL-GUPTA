@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/bg_category_item"
-                        android:padding="8dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/ivFoodIcon"
@@ -167,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/bg_category_item"
-                        android:padding="8dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/ivShoppingIcon"
@@ -208,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/bg_category_item"
-                        android:padding="8dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/ivTransportIcon"
@@ -249,7 +249,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/bg_category_item"
-                        android:padding="8dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/ivAccommodationIcon"
@@ -289,7 +289,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_category_item"
-                        android:padding="8dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/ivEntertainmentIcon"

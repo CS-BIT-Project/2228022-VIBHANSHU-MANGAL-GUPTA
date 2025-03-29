@@ -55,6 +55,13 @@ class ActivityHomepage : AppCompatActivity() {
                     true
                 }
 
+                R.id.nav_add -> {
+                    val intent = Intent(this, AddTripActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+
                 else -> false
             }
         }
@@ -73,7 +80,7 @@ class ActivityHomepage : AppCompatActivity() {
      */
     private fun setupQuickActions() {
         val quickActions = listOf(
-            QuickAction.ActivityAction(ActionItinerary::class.java, R.id.quick_action1),
+            QuickAction.ActivityAction(MyTripsActivity::class.java, R.id.quick_action1),
             QuickAction.ActivityAction(PackingListActivity::class.java, R.id.quick_action2),
             QuickAction.ActivityAction(TodoActivity::class.java, R.id.quick_action3),
             QuickAction.ActivityAction(ExpenseTrackerActivity::class.java, R.id.quick_action4),

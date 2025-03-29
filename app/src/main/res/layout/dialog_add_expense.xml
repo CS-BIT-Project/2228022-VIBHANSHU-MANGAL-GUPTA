@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:text="Add Expense"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:gravity="center"
         android:layout_marginBottom="24dp"/>
 
     <TextView
@@ -64,10 +65,10 @@
         android:id="@+id/categorySpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/spinner_background"
-        android:padding="10dp"
-        android:popupBackground="@color/dark_background"
-        android:layout_marginBottom="16dp"/>
+        android:background="#3d3e43"
+        android:popupBackground="#3d3e43"
+        android:layout_marginBottom="16dp"
+        android:drawableEnd="@drawable/ic_dropdown"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -141,7 +142,7 @@
             android:layout_marginEnd="8dp"
             android:text="Cancel"
             android:textColor="@color/white"
-            android:background="@drawable/cancel_button_background"
+            android:backgroundTint="@color/gray_700"
             android:padding="12dp"/>
 
         <Button
@@ -151,7 +152,7 @@
             android:layout_weight="1"
             android:text="Add"
             android:textColor="@color/white"
-            android:background="@drawable/add_button_background"
+            android:backgroundTint="@color/purple_400"
             android:padding="12dp"/>
     </LinearLayout>
 </LinearLayout>

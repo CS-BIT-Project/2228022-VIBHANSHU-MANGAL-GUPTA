@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="@color/card_background"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Trip Name -->
+        <TextView
+            android:id="@+id/tvTripName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvStatus"
+            tools:text="European Adventure" />
+
+        <!-- Status Badge -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_status_active"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Active" />
+
+        <!-- Destinations -->
+        <TextView
+            android:id="@+id/tvDestinations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTripName"
+            tools:text="Paris - Amsterdam - Berlin" />
+
+        <!-- Dates -->
+        <TextView
+            android:id="@+id/tvDates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDestinations"
+            tools:text="Jun 15 - Jul 2, 2024" />
+
+        <!-- Duration -->
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_clock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDates"
+            tools:text="18 days" />
+
+        <!-- Travelers -->
+        <TextView
+            android:id="@+id/tvTravelers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_people"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDuration"
+            tools:text="4 travelers" />
+
+        <!-- Cost -->
+        <TextView
+            android:id="@+id/tvCost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_wallet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTravelers"
+            tools:text="$5,800" />
+
+        <!-- Transportation -->
+        <TextView
+            android:id="@+id/tvTransport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCost"
+            tools:text="Flight" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

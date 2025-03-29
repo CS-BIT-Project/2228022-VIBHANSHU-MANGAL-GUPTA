@@ -83,6 +83,7 @@ dependencies {
     // UI Components
     implementation(libs.circleimageview)
     implementation(libs.firebase.firestore)
+    implementation(libs.androidx.activity)
 
     // Testing
     testImplementation(libs.junit)

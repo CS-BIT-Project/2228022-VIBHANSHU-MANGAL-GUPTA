@@ -4,4 +4,3 @@
     <solid android:color="@color/quantum_bluegrey950" />
     <corners android:radius="8dp" />
 </shape>
-
