@@ -59,6 +59,7 @@ dependencies {
 
     // Material Components
     implementation (libs.material.v190)
+    implementation (libs.gson)
 
     // Networking (Retrofit + OkHttp)
     implementation(libs.retrofit)
@@ -78,7 +79,7 @@ dependencies {
     implementation(libs.play.services.location.v2101) // Location services
 
     // Places API for Autocomplete
-    implementation(libs.places)
+    implementation (libs.places.v420)
 
     // UI Components
     implementation(libs.circleimageview)

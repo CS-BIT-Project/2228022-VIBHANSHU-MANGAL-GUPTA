@@ -23,10 +23,15 @@ class PackingListAdapter(private val viewModel: PackingListViewModel) :
     inner class ViewHolder(private val binding: ItemPackingBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PackingItem) {
             binding.itemTextView.text = item.name
+
+            // Remove listener to prevent unwanted triggers when binding views
+            binding.itemCheckBox.setOnCheckedChangeListener(null)
             binding.itemCheckBox.isChecked = item.isPacked
+
             updateTextStyle(item.isPacked)
 
-            binding.itemCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            // Use setOnClickListener to ensure only user interaction triggers changes
+            binding.itemCheckBox.setOnClickListener {
                 viewModel.toggleItemPacked(item)
             }
         }

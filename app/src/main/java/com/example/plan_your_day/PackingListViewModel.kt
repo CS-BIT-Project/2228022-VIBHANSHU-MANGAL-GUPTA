@@ -1,10 +1,17 @@
 package com.example.plan_your_day
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
-class PackingListViewModel : ViewModel() {
+class PackingListViewModel(application: Application) : AndroidViewModel(application) {
+    private val sharedPreferences = application.getSharedPreferences("PackingListPrefs", Context.MODE_PRIVATE)
+    private val gson = Gson()
+
     private val _packingItems = MutableLiveData<List<PackingItem>>()
     val packingItems: LiveData<List<PackingItem>> = _packingItems
 
@@ -12,14 +19,7 @@ class PackingListViewModel : ViewModel() {
     val packingStatus: LiveData<String> = _packingStatus
 
     init {
-        _packingItems.value = listOf(
-            PackingItem("Citizenship ID"),
-            PackingItem("Phone Charger"),
-            PackingItem("Headphones", true),
-            PackingItem("Camera"),
-            PackingItem("First Aid Kit"),
-            PackingItem("ToothBrush", true)
-        )
+        loadPackingList()
         updatePackingStatus()
     }
 
@@ -28,17 +28,20 @@ class PackingListViewModel : ViewModel() {
             val currentList = _packingItems.value.orEmpty().toMutableList()
             currentList.add(PackingItem(itemName))
             _packingItems.value = currentList
+            savePackingList()
             updatePackingStatus()
         }
     }
 
     fun clearPacked() {
         _packingItems.value = _packingItems.value.orEmpty().filter { !it.isPacked }
+        savePackingList()
         updatePackingStatus()
     }
 
     fun clearAll() {
         _packingItems.value = emptyList()
+        savePackingList()
         updatePackingStatus()
     }
 
@@ -48,6 +51,7 @@ class PackingListViewModel : ViewModel() {
         if (index != -1) {
             currentList[index] = item.copy(isPacked = !item.isPacked)
             _packingItems.value = currentList
+            savePackingList()
             updatePackingStatus()
         }
     }
@@ -57,6 +61,17 @@ class PackingListViewModel : ViewModel() {
         val packedItems = _packingItems.value?.count { it.isPacked } ?: 0
         _packingStatus.value = "$packedItems/$totalItems items packed"
     }
-}
 
-data class PackingItem(val name: String, var isPacked: Boolean = false)
+    private fun savePackingList() {
+        val editor = sharedPreferences.edit()
+        val json = gson.toJson(_packingItems.value)
+        editor.putString("packing_list", json)
+        editor.apply()
+    }
+
+    private fun loadPackingList() {
+        val json = sharedPreferences.getString("packing_list", null)
+        val type = object : TypeToken<List<PackingItem>>() {}.type
+        _packingItems.value = gson.fromJson(json, type) ?: emptyList()
+    }
+}

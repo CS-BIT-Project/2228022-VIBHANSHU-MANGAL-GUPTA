@@ -1,22 +1,20 @@
 package com.example.plan_your_day
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.plan_your_day.databinding.ActivityPackingListBinding
 
 class PackingListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPackingListBinding
-    private lateinit var viewModel: PackingListViewModel
+    private val viewModel: PackingListViewModel by viewModels() // ViewModel initialized correctly
     private lateinit var adapter: PackingListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPackingListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = ViewModelProvider(this).get(PackingListViewModel::class.java)
 
         setupRecyclerView()
         setupListeners()
