@@ -35,12 +35,6 @@ An all-in-one travel assistant Android app to make your trips smarter, smoother,
 
 ---
 
-## 📸 Screenshots
-
-> _Screenshots coming soon..._
-![1](https://github.com/user-attachments/assets/ef043343-ec19-48b7-aaa4-316ac1074c16)
-
----
 
 ## 🚀 Getting Started
 
