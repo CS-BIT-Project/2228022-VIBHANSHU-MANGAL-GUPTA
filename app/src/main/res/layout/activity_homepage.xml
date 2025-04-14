@@ -68,20 +68,20 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Greek Islands Adventure"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Greek Islands Adventure"-->
+<!--                        android:textColor="@android:color/white"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Santorini, Greece • Jun 15 - Jun 30"
-                        android:textColor="@color/gray_300"
-                        android:textSize="14sp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Santorini, Greece • Jun 15 - Jun 30"-->
+<!--                        android:textColor="@color/gray_300"-->
+<!--                        android:textSize="14sp" />-->
 
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <include
@@ -183,20 +183,20 @@
             </GridLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:text="Recent Activity"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="12dp"-->
+<!--                android:text="Recent Activity"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
 
-            <include layout="@layout/recent_activity" />
+<!--            <include layout="@layout/recent_activity" />-->
 
-            <include layout="@layout/recent_activity" />
+<!--            <include layout="@layout/recent_activity" />-->
 
-            <include layout="@layout/recent_activity" />
+<!--            <include layout="@layout/recent_activity" />-->
 
         </LinearLayout>
 
